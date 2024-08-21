@@ -1,0 +1,39 @@
+fun main() {
+    // manipulação de variável
+    //armazenar idade altura nome e indicação se é estudante
+    var nome: String = "joana";
+    nome = "joao vitor";
+
+    var altura: Float = 1.2F;
+    altura = 1.5F;
+
+    var idade: Int = 20;
+    idade = 22;
+
+    var idade2: Int = 22;
+
+    var idadeFinal: Int = 0;
+
+    val indicacao : Boolean = true;
+
+    //saudação pra pessoa
+    var saudacao: String = "Olá, $nome!"
+
+    //soma das idades
+
+    idadeFinal = idade + idade2;
+
+    // multiplicando altura por dois
+    altura = altura * 2;
+
+    //exibindo informações
+    println("idade somada: $idadeFinal");
+    println("Nome: $nome");
+    println("altura multiplicada: $altura");
+    println("É indicação: $indicacao");
+    println("saudacao: $saudacao");
+
+
+
+
+}
