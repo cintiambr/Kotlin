@@ -1,0 +1,35 @@
+fun main() {
+
+    //cálculo básico e manipulação de variável
+    //declarar nome idade salário bruto mensal qtd de meses trabalhados
+    //quantidade de produtos comprados
+
+    //atribuindo valor as variáveis
+    var nome: String = "joaninha";
+    var idade: Int = 22;
+    var salario: Double = 1500.25;
+    var meses: Int = 6;
+    var produtosComprados: Int = 24;
+
+    var salarioFinal: Double = 0.0;
+    var desconto: Int = 85 * meses;
+
+    var mediaGastaPorProduto = 100/produtosComprados;
+
+    //calculando o salário de acordo com meses trabalhados
+
+
+    salarioFinal =  (salario * meses) - desconto;
+
+    //mensagem de adeus
+    println("Olá, $nome, seu salário anual é de R$$salarioFinal");
+    println("Você gastou em média por produto R$$mediaGastaPorProduto");
+    println("Nome: $nome");
+    println("idade: $idade");
+    println("salário bruto mensal: $salario");
+    println("meses trabalhados: $meses");
+    println("produtos Comprados: $produtosComprados");
+    println("media Gasta Por Produto: $mediaGastaPorProduto");
+
+
+}
