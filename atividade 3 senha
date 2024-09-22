@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Digite sua senha"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:padding="16dp" />
+
+    <Button
+        android:id="@+id/buttonCheckPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verificar senha"
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/buttonCheckPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+////////////////////////
+
+
+package com.example.passwordchecker
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+
+class MainActivity : AppCompatActivity() {
+
+    // Definir a senha fixa
+    private val correctPassword = "coelho"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
+        val buttonCheckPassword = findViewById<Button>(R.id.buttonCheckPassword)
+        val textViewResult = findViewById<TextView>(R.id.textViewResult)
+
+        buttonCheckPassword.setOnClickListener {
+            val inputPassword = editTextPassword.text.toString()
+
+            if (inputPassword.isNotEmpty()) {
+                if (inputPassword == correctPassword) {
+                    textViewResult.text = "Senha correta"
+                    textViewResult.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+                } else {
+                    textViewResult.text = "Senha incorreta"
+                    textViewResult.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+                }
+            } else {
+                Toast.makeText(this, "Insira sua senha!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
