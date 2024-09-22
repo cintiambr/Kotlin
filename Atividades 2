@@ -41,3 +41,45 @@
         android:layout_marginTop="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+////////////////////////////////////////
+
+package com.example.agechecker
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val editTextAge = findViewById<EditText>(R.id.editTextAge)
+        val buttonCheck = findViewById<Button>(R.id.buttonCheck)
+        val textViewResult = findViewById<TextView>(R.id.textViewResult)
+
+        buttonCheck.setOnClickListener {
+            val ageInput = editTextAge.text.toString()
+
+            if (ageInput.isNotEmpty()) {
+                val age = ageInput.toInt()
+
+                val message = when {
+                    age < 18 -> "Você é menor de idade."
+                    age in 18..60 -> "Você está na meia idade."
+                    else -> "Você é velho."
+                }
+
+                textViewResult.text = message
+            } else {
+                Toast.makeText(this, "Insira sua idade!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
+
