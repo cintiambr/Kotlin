@@ -1,0 +1,83 @@
+package com.example.approdrigo
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.approdrigo.ui.theme.ApprodrigoTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            ApprodrigoTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    Greeting(
+                        name = "App Viagens do Rodrigo",
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "$name!",
+        modifier = modifier
+    )
+
+    var lugares : String = ""
+    println("Olá Rodrigo, pra onde você planeja viajar desta vez? ")
+    val lugaresInput = readln()
+    var gastosdiaum : Double
+    var gastosdiasdois : Double
+    var gastosdiastres: Double
+    var gastostotais: Double
+    //desculpa, é sério
+
+
+
+
+    println("Legal meu querido, e em qual data seria?")
+    val dataInput = readln()
+
+
+    println("Ótimo! sinta-se a vontade para controlar seus gastos meus querido")
+    println(500)
+    val gastosdiaumInput = readln()
+    println(300)
+    val gastosdiadoisInput = readln()
+    println(400)
+    val gastosdiastresInput = readln()
+
+
+    var gastostotais: Double = gastosdiaumInput + gastosdiadoisInput + gastosdiastresInput
+
+
+    //exibindo informações
+    println("Olá querido professor Rodrigo!")
+    println("Sua viagem para $lugares aconteceu em $data , e seus gastos totais foram de $gastostotais");
+}
+
+
+//desculpa professor, juro solenemente que não irei mais confiar em IA pra tudo, nos vemos
+//no dia da sub :)
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    ApprodrigoTheme {
+        Greeting("Android")
+    }
+}
